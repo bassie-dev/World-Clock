@@ -1,11 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World Clock</title>
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>World Clock</title>
+   <link href="index.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.43/moment-timezone-with-data.min.js"></script>
+  </head>
 <body>
-    
+  
+
+<div class="container">
+    <h1>World Clock</h1>
+
+    <select id="city-select">
+      <option value="">Select a city..</option>
+      <option value="current">My current location</option>
+      <option value="Africa/Johannesburg">Johannesburg</option>
+      <option value="Europe/Paris">Paris</option>
+      <option value="Asia/Tokyo">Tokyo</option>
+    </select>
+
+    <div id="cities">
+      <div class="city" id="johannesburg">
+        <div>
+          <h2>Johannesburg</h2>
+          <div class="date">13 September 2026</div>
+        </div>
+        <div class="time">1:18:40
+          <small>PM</small>
+        </div>
+      </div>
+      <div class="city" id="paris">
+        <div>
+          <h2>Paris</h2>
+          <div class="date">13 September 2026</div>
+        </div>
+        <div class="time">2:18:10
+          <small>PM</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <srcipt src="index.js"></srcipt>
 </body>
 </html>
