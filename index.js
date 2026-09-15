@@ -9,17 +9,28 @@ function updateClocks() {
     jhbTimeElement.innerHTML = jhbTime.format("h:mm:ss [<small>]A[</small>]");
   }
 
-  let parisElement = document.querySelector("#paris");
-  if (parisElement) {
-    let parisDateElement = parisElement.querySelector(".date");
-    let parisTimeElement = parisElement.querySelector(".time");
-    let parisTime = moment().tz("Europe/Paris");
+  let sydneyElement = document.querySelector("#sydney");
+  if (sydneyElement) {
+    let sydneyDateElement = sydneyElement.querySelector(".date");
+    let sydneyTimeElement = sydneyElement.querySelector(".time");
+    let sydneyTime = moment().tz("Australia/Sydney");
 
-    parisDateElement.innerHTML = parisTime.format("D MMMM YYYY");
-    parisTimeElement.innerHTML = parisTime.format(
+    sydneyDateElement.innerHTML = sydneyTime.format("D MMMM YYYY");
+    sydneyTimeElement.innerHTML = sydneyTime.format(
       "h:mm:ss [<small>]A[</small>]",
     );
   }
+let shanElement = document.querySelector("#shanghai");
+if (shanElement) {
+  let shanDateElement = shanElement.querySelector(".date");
+  let shanTimeElement = shanElement.querySelector(".time");
+  let shanTime = moment().tz("Asia/Shanghai");
+
+  shanDateElement.innerHTML = shanTime.format("D MMMM YYYY");
+  shanTimeElement.innerHTML = shanTime.format("h:mm:ss [<small>]A[</small>]");
+}
+
+
 
   let selectedCityElement = document.querySelector("#selected-city");
   if (selectedCityElement) {
@@ -40,26 +51,7 @@ function changeCity(event) {
   if (cityTimeZone === "current"){
     cityTimeZone = moment.tz.guess();
   }
-  if (!cityTimeZone) {
-    citiesElement.innerHTML = `
-      <div class="city" id="johannesburg">
-        <div>
-          <h2>Johannesburg</h2>
-          <div class="date"></div>
-        </div>
-        <div class="time"></div>
-      </div>
-      <div class="city" id="paris">
-        <div>
-          <h2>Paris</h2>
-          <div class="date"></div>
-        </div>
-        <div class="time"></div>
-      </div>
-    `;
-    updateClocks();
-    return;
-  }
+ 
 
   let cityName = cityTimeZone.replace(/_/g, " ").split("/")[1];
   let cityTime = moment().tz(cityTimeZone);
