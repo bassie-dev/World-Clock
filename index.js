@@ -37,6 +37,9 @@ function updateClocks() {
 
 function changeCity(event) {
   let cityTimeZone = event.target.value;
+  if (cityTimeZone === "current"){
+    cityTimeZone = moment.tz.guess();
+  }
   if (!cityTimeZone) {
     citiesElement.innerHTML = `
       <div class="city" id="johannesburg">
